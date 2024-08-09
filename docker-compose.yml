@@ -1,62 +1,62 @@
 version: '3.8'
 
 services:
-  discovery:
-    image: "hcorptech/discoveryserver:0.0.1"
-    container_name: discovery-ms
-    ports:
-      - "8761:8761"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - hindalco
+  # discovery:
+  #   image: "hcorptech/discoveryserver:0.0.1"
+  #   container_name: discovery-ms
+  #   ports:
+  #     - "8761:8761"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 700m
+  #   networks:
+  #     - hindalco
 
-  configserver:
-    image: "hcorptech/configserver:0.0.1"
-    container_name: configserver-ms
-    ports:
-      - "8888:8888"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - hindalco
-    depends_on:
-      discovery:
-        condition: service_started
+  # configserver:
+  #   image: "hcorptech/configserver:0.0.1"
+  #   container_name: configserver-ms
+  #   ports:
+  #     - "8888:8888"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 700m
+  #   networks:
+  #     - hindalco
+  #   depends_on:
+  #     discovery:
+  #       condition: service_started
 
-  apigateway:
-    image: "hcorptech/apigateway:0.0.1"
-    container_name: apigateway-ms
-    ports:
-      - "9090:9090"
-    deploy:
-      resources:
-        limits:
-          memory: 700m
-    networks:
-      - hindalco
-    depends_on:
-      - discovery
+  # apigateway:
+  #   image: "hcorptech/apigateway:0.0.1"
+  #   container_name: apigateway-ms
+  #   ports:
+  #     - "9090:9090"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 700m
+  #   networks:
+  #     - hindalco
+  #   depends_on:
+  #     - discovery
 
-  userservice:
-    image: "hcorptech/userservice:0.0.1"
-    container_name: userservice-ms
-    ports:
-      - "8081:8081"
-    deploy:
-      resources:
-        limits:
-          memory: 700m 
-    networks:
-      - hindalco
-    depends_on:
-      - discovery
-      - configserver
-      - apigateway
+  # userservice:
+  #   image: "hcorptech/userservice:0.0.1"
+  #   container_name: userservice-ms
+  #   ports:
+  #     - "8081:8081"
+  #   deploy:
+  #     resources:
+  #       limits:
+  #         memory: 700m 
+  #   networks:
+  #     - hindalco
+  #   depends_on:
+  #     - discovery
+  #     - configserver
+  #     - apigateway
 
   mongodb:
     image: mongo:latest
