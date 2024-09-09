@@ -96,6 +96,15 @@ services:
     environment:
       - SERVER_PORT=8083
       - EUREKA_DEFAULT_ZONE=http://discovery-ms:8761/eureka
+  orderservice:
+    <<: *microservice-config
+    image: "hcorptech/orderservice:0.0.1"
+    container_name: orderservice-ms
+    ports:
+      - "8086:8086"
+    environment:
+      - SERVER_PORT=8083
+      - EUREKA_DEFAULT_ZONE=http://discovery-ms:8761/eureka
 
   readerservice:
     <<: *microservice-config
