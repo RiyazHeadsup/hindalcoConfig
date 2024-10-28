@@ -126,7 +126,7 @@ services:
     ports:
       - "8095:8095"
     environment:
-      - SERVER_PORT=8083
+      - SERVER_PORT=8095
       - EUREKA_DEFAULT_ZONE=http://discovery-ms:8761/eureka
   readerservice:
     <<: *microservice-config
