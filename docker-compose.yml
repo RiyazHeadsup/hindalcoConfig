@@ -35,6 +35,7 @@ services:
       - apigateway
     networks:
       - hindalco
+      
   discovery:
     <<: *common-config
     image: "hcorptech/discoveryserver:0.0.1"
@@ -108,6 +109,7 @@ services:
     environment:
       - SERVER_PORT=8083
       - EUREKA_DEFAULT_ZONE=http://discovery-ms:8761/eureka
+      
   orderservice:
     <<: *microservice-config
     image: "hcorptech/orderservice:0.0.1"
@@ -115,7 +117,7 @@ services:
     ports:
       - "8086:8086"
     environment:
-      - SERVER_PORT=8083
+      - SERVER_PORT=8086
       - EUREKA_DEFAULT_ZONE=http://discovery-ms:8761/eureka
   uploadservice:
     <<: *microservice-config
