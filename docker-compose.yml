@@ -6,7 +6,7 @@ x-common-config: &common-config
   deploy:
     resources:
       limits:
-        memory: 700m
+        memory: 1200m
 
 x-microservice-config: &microservice-config
   <<: *common-config
